@@ -1,0 +1,15 @@
+header, nav {
+  width: 100%;
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: 500;
+  color: #e9f4f4;
+}
+
+@media (width <= 768px) {
+  .brand {
+    font-size: 1rem;
+  }
+}

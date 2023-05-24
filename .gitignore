@@ -1,0 +1,4 @@
+auth/node_modules
+auth/.env
+resource/node_modules
+resource/.env

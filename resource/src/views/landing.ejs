@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookself | <%= title %></title>
+  <link rel="stylesheet" href="../public/css/landing.css" />
+  <link rel="stylesheet" href="../public/css/header.css">
+</head>
+<body>
+  <%- include('./partials/header.ejs') %>
+  <main class="hero">
+    <div class="quote-message-cta">
+      <p class="quote">Today A Reader Tomorrow A Leader</p>
+      <p class="message">Never forget all the book you have read and where did you left. Keep your reading tracked and organized so you can overview your reading journey.</p>
+      <div class="auth">
+        <a class="auth-btn" href="http://localhost:4000/googleOauth">
+          <img src="../public/img/google.png" alt="google">Continue with Google
+        </a>
+      </div>
+    </div>
+    <img class="hero-img" src="../public/img/online-graduation.svg" alt="hero-image">
+  </main>
+</body>
+</html>

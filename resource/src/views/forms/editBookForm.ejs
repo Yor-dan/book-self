@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookself | <%= title %></title>
+    <link rel="stylesheet" href="../../public/css/bookForm.css" />
+    <link rel="stylesheet" href="../../public/css/header.css" />
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+      <form id="<%= id %>">
+        <div class="flex-col">
+          <label for="title">Title</label>
+          <input type="text" name="title" value="<%= book.title %>" required />
+        </div>
+        <div class="flex-col">
+          <label for="author">Author</label>
+          <input type="text" name="author" value="<%= book.author %>" />
+        </div>
+        <div class="flex-row" style="gap: 1rem;">
+          <div class="flex-col" style="width: 50%;">
+            <label for="released">Released</label>
+            <input type="date" name="released" value="<%= book.released %>"/>
+          </div>
+          <div class="flex-col" style="width: 50%;">
+            <label for="status">Status</label>
+            <select name="status">
+              <option value="reading">reading</option>
+              <option value="finished">finished</option>
+              <option value="dropped">dropped</option>
+            </select>
+          </div>
+        </div>
+        <input type="submit" value="save" />
+      </form>
+      <div class="floating-action-btn">
+        <a class="cancel-btn">
+          <img src="../../public/img/back.svg" alt="logout" />
+          <p class="label">cancel</p>
+        </a>
+        <a class="delete-btn" id="<%= id %>">
+          <p class="label">delete</p>
+          <img src="../../public/img/delete.svg" alt="logout" />
+        </a>
+      </div>
+    </main>
+    <script>
+      const form = document.querySelector('form');
+      const id = form.getAttribute('id');
+
+      form.addEventListener('submit', (e) => {
+        const title = document.querySelector('input[name="title"]').value;
+        const author = document.querySelector('input[name="author"]').value;
+        const released = document.querySelector('input[name="released"]').value;
+        e.preventDefault();
+        fetch(`/books/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            title,
+            author,
+            released,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            window.location.href = data.redirect;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+
+      const delBtn = document.querySelector('.delete-btn');
+      delBtn.addEventListener('click', () => {
+        fetch(`/books/${id}`, {
+          method: 'DELETE',
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            window.location.href = data.redirect;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+
+      const cancelBtn = document.querySelector('.cancel-btn');
+      cancelBtn.addEventListener('click', () => {
+        window.history.back();
+      });
+    </script>
+  </body>
+</html>

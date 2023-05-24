@@ -1,0 +1,129 @@
+@import 'base.css';
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  padding: 20px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.category {
+  color: var(--secondary);
+}
+
+main {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.add-book-btn, .logout-btn {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 7.5px 10px;
+  color: var(--secondary);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid #000;
+}
+
+.add-book-btn {
+  background-color: var(--reading);
+  gap: 1px;
+}
+
+.logout-btn {
+  background-color: var(--dropped);
+  gap: 5px;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.floating-action-btn {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.card {
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--secondary);
+  width: 250px;
+  border-left: 5px solid #000;
+  border-bottom: 5px solid #000;
+}
+
+.card > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.card-icon {
+  width: 20px;
+}
+
+.book-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.book-author {
+  font-style: italic;
+}
+
+.delBtn {
+  height: 20px;
+  width: 20px;
+
+  background: url('./img/delete.png');
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+}
+
+.no-book {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote {
+  font-size: 28px;
+  color: var(--secondary);
+}
+
+.writer {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+
+@media (width <= 600px) {
+  .book-container {
+    flex-direction: column;
+  }
+
+  .floating-action-btn {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}

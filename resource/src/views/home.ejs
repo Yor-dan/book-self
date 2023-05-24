@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookself | <%= title %></title>
+    <link rel="stylesheet" href="../public/css/home.css" />
+    <link rel="stylesheet" href="../public/css/header.css" />
+  </head>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+      <div class="floating-action-btn">
+        <a href="/books/new" class="add-book-btn">
+          <p class="label">add book</p>
+          <img class="btn-icon" src="../public/img/add.svg" alt="add" />
+        </a>
+        <a href="/logout" class="logout-btn">
+          <p class="label">logout</p>
+          <img class="btn-icon" src="../public/img/logout.svg" alt="logout" />
+        </a>
+      </div>
+      <% if (books.length > 0){ %>
+      <div class="book-container">
+        <% books.forEach((book) => { %>
+        <a
+          class="card"
+          href="/books/<%= book._id %>"
+          status="<%= book.status %>"
+        >
+          <div>
+            <p class="book-title"><%= book.title %></p>
+          </div>
+          <div>
+            <p class="book-author"><%= book.author ? book.author : '---' %></p>
+          </div>
+          <div>
+            <p><%= book.released ? book.released : '---' %></p>
+          </div>
+        </a>
+        <% }) %>
+      </div>
+      <% } else { %>
+      <div class="no-book">
+        <p class="quote">
+          “The more that you read, the more things you will know. The more that
+          you learn, the more places you’ll go.”
+        </p>
+        <p class="writer">- Dr. Seuss</p>
+      </div>
+      <% } %>
+    </main>
+    <script>
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card) => {
+        const status = card.getAttribute('status');
+        if (status === 'finished')
+          card.style.backgroundColor = 'var(--finished)';
+        else if (status === 'reading')
+          card.style.backgroundColor = 'var(--reading)';
+        else card.style.backgroundColor = 'var(--dropped)';
+      });
+    </script>
+  </body>
+</html>

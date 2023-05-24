@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookself | <%= title %></title>
+    <link rel="stylesheet" href="../../public/css/bookForm.css" />
+    <link rel="stylesheet" href="../../public/css/header.css" />
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+      <%- include('../partials/bookForm.ejs') %>
+      <div class="floating-action-btn">
+        <a class="cancel-btn">
+          <img src="../../public/img/back.svg" alt="logout" />
+          <p class="label">cancel</p>
+        </a>
+      </div>
+    </main>
+    <script>
+      const cancelBtn = document.querySelector('.cancel-btn');
+      cancelBtn.addEventListener('click', () => {
+        window.history.back();
+      });
+    </script>
+  </body>
+</html>
