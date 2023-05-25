@@ -6,3 +6,6 @@ a web application to keep track and organize the user's reading
 
 ## Google Login
 ![google login](https://github.com/Yor-dan/book-self/assets/106906701/4d2f4eee-67e1-4edd-be36-6173b289a698)
+
+## Home Page
+![home](https://github.com/Yor-dan/book-self/assets/106906701/2e229a4c-eca7-4c46-afc6-2c168b90b21f)
