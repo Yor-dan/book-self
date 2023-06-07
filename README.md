@@ -9,3 +9,6 @@ a web application to keep track and organize the user's reading
 
 ## Home Page
 ![home](https://github.com/Yor-dan/book-self/assets/106906701/2e229a4c-eca7-4c46-afc6-2c168b90b21f)
+
+## Adding a Book
+![Screenshot (147)](https://github.com/Yor-dan/book-self/assets/106906701/4ee09b34-bb6f-484d-9ca3-38396a5535ab)
